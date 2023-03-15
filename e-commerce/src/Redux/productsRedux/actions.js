@@ -5,7 +5,7 @@ export const addProduct = (data) => (dispatch) => {
   dispatch({ type: types.PRODUCT_REQUEST });
   axios
     .post("http://localhost:8080/products", data)
-    .then((res) => {
+    .then(() => {
       // console.log(res);
       dispatch({ type: types.ADD_PRODUCT_SUCCESS });
     })
@@ -17,10 +17,10 @@ export const addProduct = (data) => (dispatch) => {
 export const getProducts = (paramObj) => (dispatch) => {
   dispatch({ type: types.PRODUCT_REQUEST });
   axios
-    .post("http://localhost:8080/products", paramObj)
+    .get("http://localhost:8080/products", paramObj)
     .then((res) => {
-      // console.log(res);
-      dispatch({ type: types.GET_PRODUCT_SUCCESS ,payload:res.data});
+      console.log(res);
+      dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
     })
     .catch(() => {
       dispatch({ type: types.PRODUCT_FAILURE });

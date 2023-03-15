@@ -18,6 +18,7 @@ export default function ProductCard({ image, title, gender, price }) {
                 p={6}
                 maxW={'330px'}
                 w={'full'}
+                cursor={'pointer'}
                 bg={useColorModeValue('white', 'gray.800')}
                 boxShadow={'2xl'}
                 rounded={'lg'}
@@ -36,7 +37,7 @@ export default function ProductCard({ image, title, gender, price }) {
                         pos: 'absolute',
                         top: 5,
                         left: 0,
-                        backgroundImage: `url(${IMAGE})`,
+                        backgroundImage: `url(${image})`,
                         filter: 'blur(15px)',
                         zIndex: -1,
                     }}
