@@ -1,14 +1,18 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../Redux/auth/actions';
-import { Spinner} from '@chakra-ui/react'
+import { login } from '../Redux/authRedux/actions';
+import { Spinner } from '@chakra-ui/react'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const [email,setEmail]=useState('');
-    const [password, setPassword]=useState('');
-    const dispatch= useDispatch();
-    const {auth,isLoading,isError} = useSelector(store => store.authReducer)
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
+    const { auth, isLoading, isError } = useSelector(store => store.authReducer);
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,46 +21,48 @@ const Login = () => {
             password,
         };
 
-        dispatch(login(userData))
+        dispatch(login(userData)).then(() => {
+            navigate(location.state, { replace: true })
+        })
         setEmail('');
         setPassword('');
 
-        
+
     }
 
-    if(isLoading){
+    if (isLoading) {
         return <Spinner
-        thickness='4px'
-        speed='0.65s'
-        emptyColor='gray.200'
-        color='blue.500'
-        size='xl'
-      />
+            thickness='4px'
+            speed='0.65s'
+            emptyColor='gray.200'
+            color='blue.500'
+            size='xl'
+        />
     }
 
-    if(isError){
+    if (isError) {
         return <h1>Error....</h1>
     }
 
 
-  return (
-    <DIV>
-        <h2> User Login</h2>
-        <h3>{auth? "Login Successful! " : 'Login to Continue...'}</h3>
-        <form  onSubmit ={handleSubmit}>
-            
-            <input type="email"  placeholder='Email' value={email} onChange={(e)=> setEmail(e.target.value)}/>
-            <input type="password"   placeholder='Password' value={password} onChange={(e)=> setPassword(e.target.value)}/>
-            <button type="submit">Log In</button>
-        </form>
-      
-    </DIV>
-  )
+    return (
+        <DIV auth={auth}>
+            <h2> User Login</h2>
+            <h3>{auth ? "Login Successful! " : 'Login to Continue...'}</h3>
+            <form onSubmit={handleSubmit}>
+
+                <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                <button type="submit">Log In</button>
+            </form>
+
+        </DIV>
+    )
 }
 
 export default Login
 
-const DIV = styled.div `
+const DIV = styled.div`
     width:400px;
     margin:auto;
     border:2px solid teal;
@@ -64,7 +70,7 @@ const DIV = styled.div `
     padding:20px 20px 40px 20px;
     text-align: center;
     h3{
-        color:red;
+        color: ${({ auth }) => (auth ? 'green' : 'red')}
     }
 
     form{

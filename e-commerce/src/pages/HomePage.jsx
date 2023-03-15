@@ -1,9 +1,23 @@
 import React from 'react'
+import Sidebar from '../components/Sidebar';
+import ProductList from '../components/ProductList';
 
 const HomePage = () => {
   return (
     <div>
-      <h1>HomePage</h1>
+   
+      <div style={{display:'flex'}}>
+      <div>
+      <Sidebar/>
+
+      </div>
+      <div>
+        <ProductList/>
+      </div>
+
+      </div>
+     
+      
     </div>
   )
 }

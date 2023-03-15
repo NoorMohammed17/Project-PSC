@@ -9,6 +9,7 @@ const Navbar = () => {
         <h3>Shopping App</h3>
         <Link to="/"><h3>Home</h3></Link>
         <Link to="/login">Login</Link>
+        <Link to="/admin">Admin</Link>
       
     </DIV>
   )
@@ -19,10 +20,13 @@ export default Navbar
 const DIV = styled.div`
     display:flex;
     width: 100%;
+    font-size: large;
+    font-weight: bold;
     align-items: center;
     border:1px solid teal;
-    color:blue;
+    color:black;
     padding:10px;
-    justify-content: space-around;
+    gap:30px;
+    justify-content:flex-start;
     margin-bottom: 30px;
 `

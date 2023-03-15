@@ -3,7 +3,7 @@ import * as types from "./actionTypes";
 
 export const login = (userData) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
-  axios
+   return axios
     .post("https://reqres.in/api/login", userData)
     .then((res) => {
       console.log(res);
