@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar';
 import ProductList from '../components/ProductList';
-import { Stack, Box } from '@chakra-ui/react';
+import { Stack, Box,Divider } from '@chakra-ui/react';
 
 const HomePage = () => {
   return (
@@ -12,6 +12,9 @@ const HomePage = () => {
           <Sidebar />
 
         </Box>
+
+        <Divider borderColor={'red'}  orientation='vertical'/>
+
         <Box>
           <ProductList />
         </Box>

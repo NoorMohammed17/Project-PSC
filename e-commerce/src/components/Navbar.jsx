@@ -29,5 +29,5 @@ const DIV = styled.div`
     padding:10px;
     gap:30px;
     justify-content:flex-start;
-    margin-bottom: 30px;
+  
 `

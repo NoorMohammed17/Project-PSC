@@ -7,14 +7,17 @@ import {
     Stack,
     Image,
     Button,
+    Tag,
+    TagLabel
 } from '@chakra-ui/react';
+import { BsStarFill } from 'react-icons/bs';
 import { editProduct } from '../Redux/productsRedux/actions';
 import { useDispatch } from 'react-redux';
 
 
 
-export default function ProductCard({ image, title, gender, price, id,rating }) {
-    const dispatch=useDispatch()
+export default function ProductCard({ image, title, category, price, id, rating }) {
+    const dispatch = useDispatch()
     return (
         <Center py={12}>
             <Box
@@ -54,39 +57,58 @@ export default function ProductCard({ image, title, gender, price, id,rating }) 
                         rounded={'lg'}
                         height={230}
                         width={282}
-                        objectFit={'100%' }
+                        objectFit={'100%'}
                         src={image}
                     />
                 </Box>
                 <Stack pt={10} align={'center'}>
-                    <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
+                    <Text color={'pink.700'} fontSize={'.5xl'} textTransform={'uppercase'} noOfLines={1} fontWeight={600}>
                         {title}
                     </Text>
-                    <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-                        {gender}
+                    <Heading fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
+                        {category}
                     </Heading>
                     <Stack direction={'row'} align={'center'}>
-                        <Text fontWeight={800} fontSize={'xl'}>
-                            {price}
+                        <Text fontWeight={600} fontSize={'xl'}>
+                            ₹ {price}
                         </Text>
-                        <Text textDecoration={'line-through'} color={'gray.600'}>
-                            {rating.count}
-                        </Text>
+
                     </Stack>
+
+                    <Stack direction={'row'} align={'center'} justifyContent={'space-around'}>
+                        <Tag size='lg' colorScheme='teal' borderRadius='full'>
+                            <BsStarFill />
+                            <TagLabel ml={'5px'}>{rating.rate}</TagLabel>
+                        </Tag>
+
+                        <Stack direction={'row'} align={'center'} >
+                            <Text fontWeight={600} fontSize={'.5xl'}>
+                                {rating.count}
+                            </Text>
+                            <Text fontWeight={600} fontSize={'.5xl'}>
+                                Ratings
+                            </Text>
+
+                        </Stack>
+                    </Stack>
+
+
+
+
                 </Stack>
                 <Stack spacing={10} pt={2}>
-                            <Button
-                                loadingText="Submitting"
-                                size="lg"
-                                bg={'teal.400'}
-                                color={'white'}
-                                onClick={() => {dispatch(editProduct(id))}}
-                                _hover={{
-                                    bg: 'teal.500',
-                                }}>
-                                Edit Product
-                            </Button>
-                        </Stack>
+                    <Button
+                        loadingText="Submitting"
+                        size="lg"
+                        bg={'teal.400'}
+                        color={'white'}
+                        onClick={() => { dispatch(editProduct(id)) }}
+                        _hover={{
+                            bg: 'teal.500',
+                        }}>
+                        Edit Product
+                    </Button>
+                </Stack>
             </Box>
         </Center>
     );

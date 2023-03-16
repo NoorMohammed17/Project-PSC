@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { getProducts } from "../Redux/productsRedux/actions";
 import ProductCard from './ProductCard';
-import { Spinner, SimpleGrid,Heading } from '@chakra-ui/react';
+import { Spinner, SimpleGrid, Heading, Box } from '@chakra-ui/react';
 
 const ProductList = () => {
 
@@ -18,7 +18,7 @@ const ProductList = () => {
 
     let obj = {
         params: {
-            gender: searchParams.getAll('category'),
+            category: searchParams.getAll('category'),
             _sort: searchParams.get('order') && 'price',
             _order: searchParams.get('order')
 
@@ -32,7 +32,10 @@ const ProductList = () => {
 
     if (isLoading) {
         return <Spinner
-            margin={'auto'}
+            position='fixed'
+            z-index={1031}
+            top='50%'
+            left='50%'
             thickness='4px'
             speed='0.65s'
             emptyColor='gray.200'
@@ -42,13 +45,24 @@ const ProductList = () => {
     }
 
     if (isError) {
-        return <Heading>Error....</Heading>
+        return (
+            <Box >
+                <Heading  position='fixed'
+            z-index={1031}
+            top='50%'
+            left='50%'>Error...</Heading>
+            </Box>
+        )
     }
     console.log(products)
 
     return (
-        <SimpleGrid columns={[1, 2, 4]} spacing='40px' marginLeft={{base: '10px',
-        md: '100px',}}>
+        <SimpleGrid columns={[1, 1, 2, 4]} spacing='40px'
+            marginLeft={{
+                base: '10px',
+                md: '50px',
+            }}
+        >
             {products.length > 0 &&
                 products.map((el) => {
                     return <ProductCard key={el.id} {...el} />

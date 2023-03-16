@@ -47,7 +47,7 @@ const Login = () => {
 
     return (
         <DIV auth={auth}>
-            <h2> User Login</h2>
+            <h1> User Login</h1>
             <h3>{auth ? "Login Successful! " : 'Login to Continue...'}</h3>
             <form onSubmit={handleSubmit}>
 
@@ -69,7 +69,10 @@ const DIV = styled.div`
     border-radius: 20px;
     padding:20px 20px 40px 20px;
     text-align: center;
+    margin-top:30px;
+
     h3{
+        margin:10px;
         color: ${({ auth }) => (auth ? 'green' : 'red')}
     }
 
@@ -83,7 +86,8 @@ const DIV = styled.div`
         width:80%;
         height:40px;
         font-size:large;
-        border-radius: 10px;
+        border-radius: 8px;
+        border:3px solid pink;
         
     }
     button{
