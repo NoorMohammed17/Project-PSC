@@ -6,11 +6,15 @@ import {
     Text,
     Stack,
     Image,
+    Button,
 } from '@chakra-ui/react';
+import { editProduct } from '../Redux/productsRedux/actions';
+import { useDispatch } from 'react-redux';
 
 
 
-export default function ProductCard({ image, title, gender, price }) {
+export default function ProductCard({ image, title, gender, price, id,rating }) {
+    const dispatch=useDispatch()
     return (
         <Center py={12}>
             <Box
@@ -50,7 +54,7 @@ export default function ProductCard({ image, title, gender, price }) {
                         rounded={'lg'}
                         height={230}
                         width={282}
-                        objectFit={'cover'}
+                        objectFit={'100%' }
                         src={image}
                     />
                 </Box>
@@ -66,10 +70,23 @@ export default function ProductCard({ image, title, gender, price }) {
                             {price}
                         </Text>
                         <Text textDecoration={'line-through'} color={'gray.600'}>
-                            $199
+                            {rating.count}
                         </Text>
                     </Stack>
                 </Stack>
+                <Stack spacing={10} pt={2}>
+                            <Button
+                                loadingText="Submitting"
+                                size="lg"
+                                bg={'teal.400'}
+                                color={'white'}
+                                onClick={() => {dispatch(editProduct(id))}}
+                                _hover={{
+                                    bg: 'teal.500',
+                                }}>
+                                Edit Product
+                            </Button>
+                        </Stack>
             </Box>
         </Center>
     );

@@ -4,6 +4,7 @@ import HomePage from "./HomePage";
 import ErrorPage from "./ErrorPage";
 import PrivateRoute from '../hoc/PrivateRoute';
 import AdminPage from './AdminPage';
+import EditProduct from './EditProduct';
 
 const MainRoutes = () => {
     return (
@@ -11,6 +12,7 @@ const MainRoutes = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<PrivateRoute><AdminPage /></PrivateRoute>} />
+            <Route path="/products/:id" element={<PrivateRoute><EditProduct /></PrivateRoute>} />
             <Route path="*" element={<ErrorPage />} />
         </Routes>
     )

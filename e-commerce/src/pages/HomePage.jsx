@@ -1,23 +1,24 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar';
 import ProductList from '../components/ProductList';
+import { Stack, Box } from '@chakra-ui/react';
 
 const HomePage = () => {
   return (
     <div>
-   
-      <div style={{display:'flex'}}>
-      <div>
-      <Sidebar/>
 
-      </div>
-      <div>
-        <ProductList/>
-      </div>
+      <Stack direction={['column', 'row']}>
+        <Box>
+          <Sidebar />
 
-      </div>
-     
-      
+        </Box>
+        <Box>
+          <ProductList />
+        </Box>
+
+      </Stack>
+
+
     </div>
   )
 }

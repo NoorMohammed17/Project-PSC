@@ -26,6 +26,11 @@ export const reducer = (state = initialState, { type, payload }) => {
         isError: false,
         products: payload,
       };
+    case types.PATCH_PRODUCT_SUCCESS:
+      return {
+        isLoading: false,
+        isError: false,
+      };
     case types.PRODUCT_FAILURE:
       return {
         ...state,

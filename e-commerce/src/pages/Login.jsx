@@ -41,7 +41,7 @@ const Login = () => {
     }
 
     if (isError) {
-        return <h1>Error....</h1>
+        return <Heading>Error....</Heading>
     }
 
 

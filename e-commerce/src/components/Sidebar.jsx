@@ -5,15 +5,15 @@ import { Radio, RadioGroup } from '@chakra-ui/react'
 
 const Sidebar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
-    const initialCategory = searchParams.getAll('category')  // to make the URL not change after the reload
+    const initialCategoryParams = searchParams.getAll('category')  // to make the URL not change after the reload
 
-    const [category, setCategory] = useState(initialCategory || []); //['male', 'female','kids']
-    const initialSort = searchParams.get('value')
-    const [value, setValue] = React.useState(initialSort || null )
-    console.log('Value:',value)
+    const [category, setCategory] = useState(initialCategoryParams || []); //['male', 'female','kids']
+    const initialSortParams = searchParams.get('order')
+    const [order, setOrder] = React.useState(initialSortParams || null) //initiall null or data from initialSortParams
+    console.log('sort order:', order)
 
-    //const []
 
+    //to check the category present, and if already present uncheck it and remove from the array
     const handleFilter = (e) => {
         let newCategory = [...category];
         const value = e.target.value;
@@ -21,31 +21,28 @@ const Sidebar = () => {
             newCategory = newCategory.filter((el) => el !== value)
         } else {
             newCategory.push(value);
-
         }
         setCategory(newCategory)
 
     }
     console.log("Category:", category)
     console.log("searchParams.getAll:", searchParams.getAll("category"))
-    console.log("searchParams.Sorting:", searchParams.get("value"))
-    
-
-
-   
+    console.log("searchParams.Sorting:", searchParams.get("order"))
 
     useEffect(() => {
 
         let params = {
             category,
-            value,
         }
+
+        order && (params.order = order) //if order present then only pass order 
         setSearchParams(params)
-    }, [category,value])
+    }, [category, order])
+
     return (
         <div>
-            <Heading marginBottom={'20px'}>Filter By</Heading>
-            <Stack spacing={1} direction='column' marginBottom={'20px'}>
+            <Heading as='h4' size='md' marginBottom={'20px'}>Filter By Category</Heading>
+            <Stack spacing={1} direction={['row', 'column']} marginBottom={'20px'}>
                 <Checkbox colorScheme='green' value={'male'} onChange={handleFilter} isChecked={category.includes('male')}>
                     Men
                 </Checkbox>
@@ -57,12 +54,12 @@ const Sidebar = () => {
                 </Checkbox>
             </Stack>
 
-            <Heading marginBottom={'20px'}>Sort By</Heading>
-            <RadioGroup onChange={setValue} value={value}  >
-                <Stack direction='column' marginBottom={'20px'}>
-                    <Radio value='asc'>Ascending</Radio>
-                    <Radio value='desc'>Descending</Radio>
-                  
+            <Heading as='h4' size='md' marginBottom={'20px'}>Sort By Price</Heading>
+            <RadioGroup onChange={setOrder} value={order}>
+                <Stack direction={['row', 'column']} marginBottom={'20px'}>
+                    <Radio value='asc' isChecked={order === 'asc'} >Ascending</Radio>
+                    <Radio value='desc' isChecked={order === 'desc'}>Descending</Radio>
+
                 </Stack>
             </RadioGroup>
         </div>
