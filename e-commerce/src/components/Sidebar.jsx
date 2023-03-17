@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Checkbox, Stack, Heading } from '@chakra-ui/react'
 import { useSearchParams } from 'react-router-dom';
-import { Radio, RadioGroup, Box, } from '@chakra-ui/react'
+import { Radio, RadioGroup, Box, Button } from '@chakra-ui/react'
 
 const Sidebar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -29,6 +29,11 @@ const Sidebar = () => {
     console.log("searchParams.getAll:", searchParams.getAll("category"))
     console.log("searchParams.Sorting:", searchParams.get("order"))
 
+    const handleResetFilters = () => {
+        setCategory([]);
+        setOrder(null);
+    }
+
 
 
     useEffect(() => {
@@ -55,7 +60,7 @@ const Sidebar = () => {
         >
             <Heading as='h4' size='md' marginBottom={'20px'}>Filter By Category</Heading>
             <Stack spacing={1} direction={['row', 'row', 'column', 'column']}
-             marginBottom={'20px'}>
+                marginBottom={'20px'}>
                 <Checkbox colorScheme='green' value={'men'} onChange={handleFilter} isChecked={category.includes('men')}>
                     Men's Clothing
                 </Checkbox>
@@ -82,6 +87,17 @@ const Sidebar = () => {
 
                 </Stack>
             </RadioGroup>
+            <Button bg={'teal.400'}
+                color={'white'}
+                size="md"
+                variant='solid'
+                marginTop={'10px'}
+                _hover={{
+                    bg: 'teal.500',
+                }}
+                onClick={handleResetFilters}>
+                Reset Filter & Sort
+            </Button>
         </Box>
     )
 }
