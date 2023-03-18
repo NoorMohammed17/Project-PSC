@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../Redux/authRedux/actions';
-import { Spinner } from '@chakra-ui/react'
+import { Spinner,Box,Heading } from '@chakra-ui/react'
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -32,16 +32,25 @@ const Login = () => {
 
     if (isLoading) {
         return <Spinner
-            thickness='4px'
-            speed='0.65s'
-            emptyColor='gray.200'
-            color='blue.500'
-            size='xl'
+        position='fixed'
+        z-index={1031}
+        top='50%'
+        left='50%'
+        thickness='4px'
+        speed='0.65s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='xl'
         />
     }
 
     if (isError) {
-        return <Heading>Error....</Heading>
+        return <Box >
+        <Heading  position='fixed'
+    z-index={1031}
+    top='50%'
+    left='50%'>Error...</Heading>
+    </Box>
     }
 
 
@@ -70,9 +79,16 @@ const DIV = styled.div`
     padding:20px 20px 40px 20px;
     text-align: center;
     margin-top:30px;
+    h1{
+        color:black;
+        font-size: 30px;
+        font-weight: bold;
+    }
 
     h3{
         margin:10px;
+        font-size: 20px;
+        font-weight: 400;
         color: ${({ auth }) => (auth ? 'green' : 'red')}
     }
 

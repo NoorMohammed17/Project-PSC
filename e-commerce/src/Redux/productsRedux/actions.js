@@ -27,13 +27,26 @@ export const getProducts = (paramObj) => (dispatch) => {
     });
 };
 
-export const editProduct = (dataObj, id) => (dispatch) => {
+// export const editProduct = (dataObj, id) => (dispatch) => {
+//   dispatch({ type: types.PRODUCT_REQUEST });
+//   axios
+//     .patch(`http://localhost:8080/products/${id}`, dataObj)
+//     .then((res) => {
+//       console.log(res);
+//       dispatch({ type: types.PATCH_PRODUCT_SUCCESS });
+//     })
+//     .catch(() => {
+//       dispatch({ type: types.PRODUCT_FAILURE });
+//     });
+// };
+
+export const editProduct = ( id) => (dispatch) => {
   dispatch({ type: types.PRODUCT_REQUEST });
   axios
-    .patch(`http://localhost:8080/products/${id}`, dataObj)
+    .get(`http://localhost:8080/products/${id}`)
     .then((res) => {
-      console.log(res);
-      dispatch({ type: types.PATCH_PRODUCT_SUCCESS });
+      console.log('editProducts',res.data);
+      dispatch({ type: types.PATCH_PRODUCT_SUCCESS, payload:res.data });
     })
     .catch(() => {
       dispatch({ type: types.PRODUCT_FAILURE });

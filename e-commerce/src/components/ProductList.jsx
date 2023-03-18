@@ -57,7 +57,7 @@ const ProductList = () => {
     console.log(products)
 
     return (
-        <SimpleGrid columns={[1, 1, 2, 4]} spacing='40px'
+        <SimpleGrid columns={[1, 2, 2, 4]} spacing='40px'
             marginLeft={{
                 base: '10px',
                 md: '50px',

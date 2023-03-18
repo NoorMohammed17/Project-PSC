@@ -4,6 +4,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   products: [],
+  singleProduct : [],
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -30,6 +31,7 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         isLoading: false,
         isError: false,
+        singleProduct: [...state.singleProduct,payload],
       };
     case types.PRODUCT_FAILURE:
       return {

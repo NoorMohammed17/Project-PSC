@@ -18,6 +18,11 @@ import { useDispatch } from 'react-redux';
 
 export default function ProductCard({ image, title, category, price, id, rating }) {
     const dispatch = useDispatch()
+
+    const editHandler = () => {
+        console.log('edit clicked')
+        dispatch(editProduct(id))
+    }
     return (
         <Center py={12}>
             <Box
@@ -35,7 +40,7 @@ export default function ProductCard({ image, title, category, price, id, rating 
                     rounded={'lg'}
                     mt={-12}
                     pos={'relative'}
-                    height={'230px'}
+                    height={'270px'}
                     _after={{
                         transition: 'all .3s ease',
                         content: '""',
@@ -55,7 +60,7 @@ export default function ProductCard({ image, title, category, price, id, rating 
                     }}>
                     <Image
                         rounded={'lg'}
-                        height={230}
+                        height={270}
                         width={282}
                         objectFit={'100%'}
                         src={image}
@@ -70,7 +75,7 @@ export default function ProductCard({ image, title, category, price, id, rating 
                     </Heading>
                     <Stack direction={'row'} align={'center'}>
                         <Text fontWeight={600} fontSize={'xl'}>
-                            ₹ {price}
+                        $ {price}
                         </Text>
 
                     </Stack>
@@ -102,7 +107,7 @@ export default function ProductCard({ image, title, category, price, id, rating 
                         size="lg"
                         bg={'teal.400'}
                         color={'white'}
-                        onClick={() => { dispatch(editProduct(id)) }}
+                        onClick={editHandler  }
                         _hover={{
                             bg: 'teal.500',
                         }}>

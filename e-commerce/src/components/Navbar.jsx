@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
+import CartPage from '../pages/cartPage';
 
 
 const Navbar = () => {
@@ -11,6 +12,7 @@ const Navbar = () => {
         <Link to="/login">Login</Link>
         <Link to="/admin">Admin</Link>
         <Link to='/edit'>Edit</Link>
+        <CartPage/>
       
     </DIV>
   )

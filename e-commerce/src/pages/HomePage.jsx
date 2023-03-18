@@ -9,7 +9,7 @@ const HomePage = () => {
     <div>
        <MetaData title={"eCommerce App (IN)"} />
 
-      <Stack direction={['column', 'row']}>
+      <Stack direction={['column','column','row', 'row']}>
         <Box>
           <Sidebar />
 

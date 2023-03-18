@@ -55,7 +55,7 @@ const Sidebar = () => {
             pt={'20px'}
             borderWidth='4px'
             h={'full'}
-            w={{ base: 'full', md: 'full', sm: '80' }}
+            w={{ base: 'full', md: 'full', sm: 'full' }}
         // border={'1px solid red'}
         >
             <Heading as='h4' size='md' marginBottom={'20px'}>Filter By Category</Heading>
