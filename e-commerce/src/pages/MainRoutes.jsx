@@ -1,11 +1,12 @@
 import { Routes, Route } from 'react-router-dom'
 import Login from "./Login";
 import HomePage from "./HomePage";
-import ErrorPage from "./ErrorPage";
+//import ErrorPage from "./ErrorPage";
 import PrivateRoute from '../hoc/PrivateRoute';
 import AdminPage from './AdminPage';
 //import EditProduct from './EditProduct';
 import SinglePRoductPage from './SinglePRoductPage';
+import Cart from './Cart';
 
 
 const MainRoutes = () => {
@@ -15,7 +16,8 @@ const MainRoutes = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<PrivateRoute><AdminPage /></PrivateRoute>} />
             <Route path="/products/:id" element={<PrivateRoute><SinglePRoductPage /></PrivateRoute>} />
-            <Route path="*" element={<ErrorPage />} />
+            {/* <Route path="*" element={<ErrorPage />} /> */}
+            <Route path="*" element={<Cart />} />
         </Routes>
     )
 }

@@ -15,8 +15,8 @@ const Sidebar = () => {
     const [page, setPage] = useState(+initialPageParams || 1) //initially  1 or data from initialPageParams
     const { products } = useSelector(store => store.productsReducer);
 
-    let productsLength = products?.length;
-    console.log(productsLength)
+    let productsLength = products.length;
+    console.log("products length:",productsLength)
 
 
 
@@ -50,6 +50,7 @@ const Sidebar = () => {
     const handleResetFilters = () => {
         setCategory([]);
         setOrder(null);
+        setPage(1);
     }
 
 
@@ -115,6 +116,7 @@ const Sidebar = () => {
                     size="md"
                     variant='solid'
                     marginTop={'10px'}
+                    isDisabled={page===1}
                     _hover={{
                         bg: 'teal.500',
                     }}
@@ -126,7 +128,7 @@ const Sidebar = () => {
                     size="md"
                     variant='solid'
                     marginTop={'10px'}
-                    disabled={page===1}
+                    
                     _hover={{
                         bg: 'teal.500',
                     }}
@@ -138,6 +140,7 @@ const Sidebar = () => {
                     size="md"
                     variant='solid'
                     marginTop={'10px'}
+                    isDisabled={productsLength===0}
                     _hover={{
                         bg: 'teal.500',
                     }}
