@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { getProducts } from "../Redux/productsRedux/actions";
 import ProductCard from './ProductCard';
 import { Spinner, SimpleGrid, Heading, Box } from '@chakra-ui/react';
+//import Pagination from './Pagination';
 
 const ProductList = () => {
 
@@ -13,6 +14,11 @@ const ProductList = () => {
     const { products, isLoading, isError } = useSelector(store => store.productsReducer);
 
     const location = useLocation()
+    //const [activePage, setActivePage] = useState(1)
+
+    // const handlePageChange = (newPageNumber)=> {
+    //     setActivePage(newPageNumber)
+    // }
 
     //console.log(searchParams.getAll('category'))
 
@@ -59,20 +65,35 @@ const ProductList = () => {
     console.log(products)
 
     return (
-        <SimpleGrid columns={[1, 2, 2, 4]} spacing='40px'
-            marginLeft={{
-                base: '10px',
-                md: '50px',
-            }}
+        <div>
+               <SimpleGrid columns={[1, 2, 2, 4]} spacing='40px'
+            marginLeft={{base: '10px',md: '50px'}}
         >
+       
             {products.length > 0 &&
                 products.map((el) => {
                     return <ProductCard key={el.id} {...el} />
                 }
                 )
             }
+         
+           
+        {/* {products.length > 0 && products.filter((item, index) => {
+         return index >= 4 * (activePage - 1) && index < 4 * activePage
+        }).map(item => {
+            return <ProductCard key={item.id} {...item} />
+        })}
+       
+        
+      
+        <Flex justifyContent="center" p={6}>
 
+        <Pagination productsLength={products?.length}
+        perPage={4} activePage={activePage} handlePageChange={handlePageChange}/>
+        </Flex> */}
         </SimpleGrid>
+        </div>
+
     )
 }
 

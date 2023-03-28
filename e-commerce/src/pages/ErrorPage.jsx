@@ -20,9 +20,9 @@ export default function ErrorPage() {
       </Text>
 
       <Button
-      as ={Link}
-      to='/'
-      textDecoration={'none'}
+        as={Link}
+        to='/'
+        textDecoration={'none'}
         colorScheme="teal"
         bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
         color="white"

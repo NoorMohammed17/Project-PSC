@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Checkbox, Stack, Heading } from '@chakra-ui/react'
 import { useSearchParams } from 'react-router-dom';
 import { Radio, RadioGroup, Box, Button } from '@chakra-ui/react'
+import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -12,6 +13,11 @@ const Sidebar = () => {
     //console.log('sort order:', order)
     const initialPageParams = searchParams.get('page')
     const [page, setPage] = useState(+initialPageParams || 1) //initially  1 or data from initialPageParams
+    const { products } = useSelector(store => store.productsReducer);
+
+    let productsLength = products?.length;
+    console.log(productsLength)
+
 
 
 
