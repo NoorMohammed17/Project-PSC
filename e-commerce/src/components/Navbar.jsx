@@ -2,8 +2,8 @@ import React from 'react'
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import CartPage from '../pages/cartPage';
-import Checkout from '../pages/Checkout';
-import PaymentPage from '../pages/PaymentPage';
+//import Checkout from '../pages/Checkout';
+//import PaymentPage from '../pages/PaymentPage';
 
 
 const Navbar = () => {

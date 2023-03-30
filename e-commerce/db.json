@@ -240,9 +240,15 @@
         "count": 145
       }
     }
-  
   ],
-  "shipping":[
-    
-  ]
+  "shipping": {
+    "firstname": "tara",
+    "lastname": "irfan",
+    "address1": "housing board colony",
+    "address2": "hindupur sathya sai district",
+    "city": "hindupuur",
+    "state": "andhrapradesh",
+    "zipcode": "515201",
+    "phone": "1245789630"
+  }
 }

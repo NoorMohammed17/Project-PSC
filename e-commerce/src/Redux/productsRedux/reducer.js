@@ -5,6 +5,7 @@ const initialState = {
   isError: false,
   products: [],
   singleProduct : [],
+  shipping:[],
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -21,12 +22,24 @@ export const reducer = (state = initialState, { type, payload }) => {
         isError: false,
         products: payload,
       };
+      case types.GET_SHIPPING_SUCCESS:
+        return {
+          isLoading: false,
+          isError: false,
+          shipping: payload,
+        };
     case types.ADD_PRODUCT_SUCCESS:
       return {
         isLoading: false,
         isError: false,
         products: payload,
       };
+      case types.ADD_SHIPPING_SUCCESS:
+        return {
+          isLoading: false,
+          isError: false,
+          shipping: payload,
+        };
     case types.PATCH_PRODUCT_SUCCESS:
       return {
         isLoading: false,

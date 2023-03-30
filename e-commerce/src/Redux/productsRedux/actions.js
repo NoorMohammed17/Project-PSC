@@ -39,6 +39,18 @@ export const getProducts = (paramObj) => (dispatch) => {
       dispatch({ type: types.PRODUCT_FAILURE });
     });
 };
+export const getshipping = () => (dispatch) => {
+  dispatch({ type: types.PRODUCT_REQUEST });
+  axios
+    .get("http://localhost:8080/shipping" )
+    .then((res) => {
+      console.log(res);
+      dispatch({ type: types.GET_SHIPPING_SUCCESS, payload: res.data });
+    })
+    .catch(() => {
+      dispatch({ type: types.PRODUCT_FAILURE });
+    });
+};
 
 // export const editProduct = (dataObj, id) => (dispatch) => {
 //   dispatch({ type: types.PRODUCT_REQUEST });
