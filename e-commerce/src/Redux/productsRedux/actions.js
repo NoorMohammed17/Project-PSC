@@ -14,6 +14,19 @@ export const addProduct = (data) => (dispatch) => {
     });
 };
 
+export const addShipping = (data) => (dispatch) => {
+  dispatch({ type: types.PRODUCT_REQUEST });
+  axios
+    .post("http://localhost:8080/shipping", data)
+    .then(() => {
+      // console.log(res);
+      dispatch({ type: types.ADD_SHIPPING_SUCCESS });
+    })
+    .catch(() => {
+      dispatch({ type: types.PRODUCT_FAILURE });
+    });
+};
+
 export const getProducts = (paramObj) => (dispatch) => {
   dispatch({ type: types.PRODUCT_REQUEST });
   axios

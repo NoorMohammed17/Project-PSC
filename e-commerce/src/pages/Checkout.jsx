@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Button, Stack, Box, Text } from '@chakra-ui/react'
 import { Input } from '@chakra-ui/react'
 import { Flex } from '@chakra-ui/react'
@@ -9,6 +9,12 @@ let afterpay ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAX0AAACECAMAAABLTQs
 
 
 const Checkout = () => {
+
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [address1, setAddress1]= useState('');
+    const [address2, setAddress2]= useState('');
+    const [city, setCity]= useState('');
     return (
         <div>
             <Stack direction={['column', 'row']} justifyContent={'center'} margin={'auto'} spacing={'24px'} 

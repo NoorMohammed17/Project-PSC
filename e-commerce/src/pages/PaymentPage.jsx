@@ -1,8 +1,8 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Button, Stack, Box, Text } from '@chakra-ui/react'
 import { Input } from '@chakra-ui/react'
 import { Flex } from '@chakra-ui/react'
-import { Select, FormControl, FormLabel, Switch, Radio, Image } from '@chakra-ui/react'
+import {  FormControl, FormLabel, Switch, Radio, Image } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, Heading, Spacer, StackDivider } from '@chakra-ui/react'
 import { GiCheckMark } from "react-icons/gi";
 
@@ -10,6 +10,9 @@ let afterpay = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAX0AAACECAMAAABLTQ
 
 
 const PaymentPage = () => {
+    const [cardname, setCardname] = useState('');
+    const [cardnumber, setCardnumber] = useState('');
+
     return (
         <div>
             <Stack direction={['column', 'row']} justifyContent={'center'} margin={'auto'} spacing={'24px'}
