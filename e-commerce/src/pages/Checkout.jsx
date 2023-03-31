@@ -52,7 +52,7 @@ const Checkout = () => {
             <Stack direction={['column', 'row']} justifyContent={'center'} margin={'auto'} spacing={'24px'}
                 // border={'1px solid teal'}
                 width={{base:'100%',md:'100%',lg:'60%'}} border='1px solid red'>
-                <Stack width={{base:'100%',md:'60%'}} direction={['column', 'column']}>
+                <Stack width={{base:'100%',md:'100%',lg:'60%'}} direction={['column', 'column']}>
                     <Box p={2} bgColor={'black'} color={'white'} fontWeight={500} borderRadius={5} width={'100%'} mb={'10px'}>1. Shipping</Box>
 
                     <Stack width={'100%'} p={2} border={'0.5px solid gray'} mb={'20px'} borderRadius={5}>
@@ -179,7 +179,7 @@ const Checkout = () => {
                 </Stack>
 
 
-                <Stack width={{base:'100%',md:'35%'}} height={'auto'} >
+                <Stack width={{base:'100%',md:'100%',lg:'35%'}} height={'auto'} direction={['column', 'column'] }>
                     <Card border={'1px solid black'} borderRadius={'5px'} >
                         <CardHeader>
                             <Heading size='md'>Order Summary</Heading>

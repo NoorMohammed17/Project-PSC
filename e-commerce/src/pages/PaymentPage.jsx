@@ -3,7 +3,7 @@ import { Button, Stack, Box, Text } from '@chakra-ui/react'
 import { Input } from '@chakra-ui/react'
 import { Flex } from '@chakra-ui/react'
 import { FormControl, FormLabel, Switch, Radio, Image } from '@chakra-ui/react'
-import { Card, CardHeader, CardBody, Heading, Spacer, StackDivider } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, Heading, Spacer, StackDivider, Divider } from '@chakra-ui/react'
 import { GiCheckMark } from "react-icons/gi";
 import { useDispatch, useSelector } from 'react-redux'
 import { getshipping } from '../Redux/productsRedux/actions'
@@ -21,10 +21,10 @@ const PaymentPage = () => {
 
     useEffect(() => {
         dispatch(getshipping())
-           
+
     }, [])
 
-   // console.log(data)
+    // console.log(data)
 
 
 
@@ -34,8 +34,8 @@ const PaymentPage = () => {
             <Stack direction={['column', 'row']} justifyContent={'center'} margin={'auto'} spacing={'24px'}
                 // border={'1px solid teal'}
                 width={'80%'}>
-                <Stack width={'70%'}>
-                    <Stack direction={['row']} p={2} bgColor={'white'} border={'1px solid black'} color={'black'} borderRadius={5} width={'100%'} mb={'10px'}>
+                <Stack width={'70%'} spacing={'20px'}>
+                    <Stack direction={['row']} p={2} bgColor={'white'} border={'1px solid black'} color={'black'} borderRadius={5} width={'100%'} mb={'20px'}>
                         <Box><GiCheckMark /></Box>
                         <Box
                             //p={2} bgColor={'black'} color={'white'} fontWeight={500} borderRadius={5} width={'100%'} mb={'10px'}
@@ -43,12 +43,9 @@ const PaymentPage = () => {
                         > 1. Shipping</Box>
                     </Stack>
 
-                    <Box p={2} bgColor={'black'} color={'white'} fontWeight={500} borderRadius={5} width={'100%'} mb={'10px'}>2. Payment Method</Box>
+                    <Box p={2} bgColor={'black'} color={'white'} fontWeight={500} borderRadius={5} width={'100%'} mb={'20px'}>2. Payment Method</Box>
 
-                    <Stack width={'100%'} p={2} border={'0.5px solid gray'} mb={'20px'} borderRadius={5}>
-                        <Text color={'blue'} as="u">Apply a Belk Gift Card</Text>
 
-                    </Stack>
 
 
                     <Stack width={'100%'} p={5} border={'0.1px solid gray'} mb={'40px'} borderRadius={5}>
@@ -66,15 +63,32 @@ const PaymentPage = () => {
                                 This is my default
                             </FormLabel>
                         </FormControl>
+                    </Stack>
 
+                    <Stack width={'100%'} p={2} border={'0.5px solid gray'} mb={'20px'} borderRadius={5}>
+                        <Text color={'blue'} as="u">Apply a Vastram Gift Card</Text>
+                    </Stack>
 
+                    <Stack width={'100%'} p={4} pb={10} border={'0.5px solid gray'} mb={'40px'}  mt={'40px'} borderRadius={5}>
+                        <Box mt={'10px'} mb={'10px'}>
+                            <Text fontWeight={'500'} fontSize={'xl'}>Vastram Rewards+</Text>
+                        </Box>
+
+                        <Divider orientation='horizontal' colorScheme="gray"   width={'98%'}/>
+                        <Text mt={'10px'} mb={'10px'}>Have a vastram Reward Dollars certificate? Enter it below!</Text>
+                        <Flex alignItems={'center'} width={'100%'} mb={'20px'}>
+                            <Input placeholder='Enter your certificate here' borderRadius={'none'} width={'60%'}  />
+                            <Button colorScheme='blue' variant='outline'  borderRadius={'none'}>
+                                Add
+                            </Button>
+                        </Flex>
                     </Stack>
 
 
-                    <Stack width={'100%'} p={0} border={'1px solid gray'} mb={'40px'} borderRadius={5}>
+                    <Stack width={'100%'} p={0} border={'1px solid gray'} mb={'20px'} borderRadius={5}>
                         <Card>
                             <CardHeader>
-                                <Heading size='md'>Shipping Method</Heading>
+                                <Text fontWeight={'500'} fontSize={'xl'} >Billing Information</Text>
                             </CardHeader>
 
                             <CardBody>
@@ -84,7 +98,7 @@ const PaymentPage = () => {
                                             <Radio size='lg' value='1' ></Radio>
                                             <Box ml='3'>
 
-                                                <Text fontWeight='bold'>
+                                                <Text fontWeight='600'>
                                                     Use same as Shipping Address
 
                                                 </Text>
@@ -94,10 +108,10 @@ const PaymentPage = () => {
                                     </Box>
                                     <Box>
                                         <Flex>
-                                            <Radio size='lg' value='1'></Radio>
+                                            <Radio size='lg' value='2'></Radio>
                                             <Box ml='3'>
 
-                                                <Text fontWeight='bold'>
+                                                <Text fontWeight='600'>
                                                     Use a Different Address
 
                                                 </Text>
@@ -108,12 +122,28 @@ const PaymentPage = () => {
 
                                 </Stack>
 
-                                <Stack>
-                                    <Text fontWeight={'bold'}>{shipping.firstname} {shipping.lastname}</Text>
+                                <Stack mt={'20px'}>
+                                    <Text fontWeight={'600'}>{shipping.firstname} {shipping.lastname}</Text>
                                     <Text>{shipping.address1}</Text>
                                     <Text>{shipping.address2}</Text>
                                     <Text>{shipping.city} {shipping.state} {shipping.zipcode}</Text>
                                     <Text>{shipping.phone}</Text>
+                                    <FormControl display='flex' alignItems='center' mt={'20px'} >
+                                        <Switch id='default-alerts' isChecked />
+                                        <FormLabel htmlFor='default-alerts' ml='10px' >
+                                            This is my default
+                                        </FormLabel>
+                                    </FormControl>
+                                </Stack>
+                                <Stack mt={'20px'}>
+
+                                    <Flex alignItems={'center'} justifyContent={'space-between'} width={'40%'}>
+                                        <Text fontWeight={'bold'}>Email</Text>
+                                        <Text fontWeight={'400'} color={'blue'} as='u' >Why is this required?</Text>
+                                    </Flex>
+                                    <Input placeholder='' width={'40%'} borderRadius={'none'} mb={'20px'} name='email'
+                                    //value={data.phone} onChange={(e) => { handleChange(e) }} 
+                                    />
                                 </Stack>
 
                             </CardBody>
@@ -125,10 +155,10 @@ const PaymentPage = () => {
                 </Stack>
 
 
-                <Stack width={'25%'} height={'auto'}>
+                <Stack width={'25%'} height={'auto'} direction={['column']}>
                     <Card border={'1px solid black'} borderRadius={'5px'} >
                         <CardHeader>
-                            <Heading size='md'>Order Summary</Heading>
+                            <Text fontWeight={'500'} fontSize={'xl'}>Order Summary</Text>
                         </CardHeader>
                         <CardBody>
                             <Stack divider={<StackDivider />} spacing='4'>
@@ -144,8 +174,8 @@ const PaymentPage = () => {
                                 </Box>
                                 <Box>
                                     <Flex alignItems={'center'} justifyContent={'space-between'} width={'100%'}>
-                                        <Text fontWeight={'bold'}>Estimated Total</Text>
-                                        <Text fontWeight={'bold'}  >$614</Text>
+                                        <Text fontWeight={'600'}>Estimated Total</Text>
+                                        <Text fontWeight={'600'}  >$614</Text>
                                     </Flex>
                                     <Text>
                                         or 4 interest-free payments of $153.50 with
@@ -157,6 +187,28 @@ const PaymentPage = () => {
 
                         </CardBody>
                     </Card>
+
+                    <Stack mt={'20px'} border={'1px solid black'} divider={<StackDivider />} spacing='4' borderRadius={'5px'} p={'15px'}>
+                        <Box>
+                            <Flex alignItems={'center'} justifyContent={'space-between'} width={'100%'} mb={'20px'}>
+                                <Text fontWeight={'500'} fontSize={'xl'}>Shipping by Vastram</Text>
+                                <Text fontWeight={'400'} color={'blue'} as='u'  >Edit</Text>
+                            </Flex>
+
+                            <Text fontWeight={'600'}>{shipping.firstname} {shipping.lastname}</Text>
+                            <Text>{shipping.address1}</Text>
+                            <Text>{shipping.address2}</Text>
+                            <Text>{shipping.city} {shipping.state} {shipping.zipcode}</Text>
+                            <Text>{shipping.phone}</Text>
+                        </Box>
+                        <Box>
+                            <Text>Method : {shipping.order}</Text>
+
+                        </Box>
+
+
+
+                    </Stack>
 
                 </Stack>
             </Stack>
