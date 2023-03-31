@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Stack, Box, Text } from '@chakra-ui/react'
 import { Input } from '@chakra-ui/react'
 import { Flex } from '@chakra-ui/react'
@@ -14,13 +14,19 @@ let afterpay = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAX0AAACECAMAAABLTQ
 const PaymentPage = () => {
     //const [cardname, setCardname] = useState('');
     //const [cardnumber, setCardnumber] = useState('');
+    //const [data, setData] = useState([])
     const { shipping } = useSelector(store => store.productsReducer);
     const dispatch = useDispatch();
     console.log(shipping);
-    
+
     useEffect(() => {
-        dispatch(getshipping());
+        dispatch(getshipping())
+           
     }, [])
+
+   // console.log(data)
+
+
 
 
     return (

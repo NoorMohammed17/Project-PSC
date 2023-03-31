@@ -242,13 +242,14 @@
     }
   ],
   "shipping": {
-    "firstname": "tara",
-    "lastname": "irfan",
-    "address1": "housing board colony",
-    "address2": "hindupur sathya sai district",
-    "city": "hindupuur",
-    "state": "andhrapradesh",
+    "firstname": "noor",
+    "lastname": "mohammed",
+    "address1": "123456",
+    "address2": "abcdcolony",
+    "city": "hindupur",
+    "state": "gujarat",
     "zipcode": "515201",
-    "phone": "1245789630"
+    "phone": "8956231470",
+    "order": "Overnight: $29.95"
   }
 }
