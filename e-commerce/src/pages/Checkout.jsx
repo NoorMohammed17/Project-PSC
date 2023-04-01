@@ -51,8 +51,8 @@ const Checkout = () => {
         <div>
             <Stack direction={['column', 'row']} justifyContent={'center'} margin={'auto'} spacing={'24px'}
                 // border={'1px solid teal'}
-                width={{base:'100%',md:'100%',lg:'60%'}} border='1px solid red'>
-                <Stack width={{base:'100%',md:'100%',lg:'60%'}} direction={['column', 'column']}>
+                width={{base:'100%',md:'100%',lg:'95%'}} border='1px solid red'>
+                <Stack width={{base:'100%',md:'100%',lg:'95%'}} direction={['column', 'column']}>
                     <Box p={2} bgColor={'black'} color={'white'} fontWeight={500} borderRadius={5} width={'100%'} mb={'10px'}>1. Shipping</Box>
 
                     <Stack width={'100%'} p={2} border={'0.5px solid gray'} mb={'20px'} borderRadius={5}>
@@ -81,14 +81,14 @@ const Checkout = () => {
                             <Text fontWeight={'bold'}>Address Line 2</Text>
                             <Input placeholder='Apt/Suite/Floor(optional)' borderRadius={'none'} name='address2' value={data.address2} onChange={(e) => { handleChange(e) }} />
 
-                            <Flex alignItems={'center'} justifyContent={'space-between'} width={'70%'}>
+                            <Flex alignItems={'center'} justifyContent={'space-between'} width={{base:'100%',md:'70%',lg:'70%'}}>
                                 <Text fontWeight={'bold'}>City</Text>
                                 <Text fontWeight={'400'} color={'blue'} as='u' >APO/FPO</Text>
                             </Flex>
-                            <Input placeholder='' width={'70%'} borderRadius={'none'} name='city' value={data.city} onChange={(e) => { handleChange(e) }} />
+                            <Input placeholder='' width={{base:'100%',md:'70%',lg:'70%'}} borderRadius={'none'} name='city' value={data.city} onChange={(e) => { handleChange(e) }} />
 
                             <Text fontWeight={'bold'}>State</Text>
-                            <Select placeholder='Select' border={'1px solid black'} borderRadius={'none'} width={'70%'} name='state' value={data.state} onChange={(e) => { handleChange(e) }}>
+                            <Select placeholder='Select' border={'1px solid black'} borderRadius={'none'} width={{base:'100%',md:'70%',lg:'70%'}} name='state' value={data.state} onChange={(e) => { handleChange(e) }}>
                                 <option value='andhrapradesh'>Andhra Pradesh</option>
                                 <option value='mumbai'>Mumbai</option>
                                 <option value='gujarat'>Gujarat</option>
@@ -97,14 +97,14 @@ const Checkout = () => {
 
 
                             <Text fontWeight={'bold'}>Zip Code</Text>
-                            <Input placeholder='' width={'70%'} borderRadius={'none'} name='zipcode' value={data.zipcode} onChange={(e) => { handleChange(e) }} />
+                            <Input placeholder='' width={{base:'100%',md:'70%',lg:'70%'}} borderRadius={'none'} name='zipcode' value={data.zipcode} onChange={(e) => { handleChange(e) }} />
 
 
-                            <Flex alignItems={'center'} justifyContent={'space-between'} width={'70%'}>
+                            <Flex alignItems={'center'} justifyContent={'space-between'}  width={{base:'100%',md:'70%',lg:'70%'}}>
                                 <Text fontWeight={'bold'}>Phone Number</Text>
                                 <Text fontWeight={'400'} color={'blue'} as='u' >Why is this required?</Text>
                             </Flex>
-                            <Input placeholder='' width={'70%'} borderRadius={'none'} mb={'20px'} name='phone' value={data.phone} onChange={(e) => { handleChange(e) }} />
+                            <Input placeholder='' width={{base:'100%',md:'70%',lg:'70%'}} borderRadius={'none'} mb={'20px'} name='phone' value={data.phone} onChange={(e) => { handleChange(e) }} />
 
                             <FormControl display='flex' alignItems='center' >
                                 <Switch id='default-alerts' />
@@ -179,7 +179,7 @@ const Checkout = () => {
                 </Stack>
 
 
-                <Stack width={{base:'100%',md:'100%',lg:'35%'}} height={'auto'} direction={['column', 'column'] }>
+                <Stack width={{base:'100%',md:'100%',lg:'30%'}} height={'auto'} direction={['column', 'column'] }>
                     <Card border={'1px solid black'} borderRadius={'5px'} >
                         <CardHeader>
                             <Heading size='md'>Order Summary</Heading>

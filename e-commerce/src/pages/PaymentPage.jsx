@@ -3,7 +3,7 @@ import { Button, Stack, Box, Text } from '@chakra-ui/react'
 import { Input } from '@chakra-ui/react'
 import { Flex } from '@chakra-ui/react'
 import { FormControl, FormLabel, Switch, Radio, Image } from '@chakra-ui/react'
-import { Card, CardHeader, CardBody, Heading, Spacer, StackDivider, Divider } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, Heading, Spacer, StackDivider, Divider,Select } from '@chakra-ui/react'
 import { GiCheckMark } from "react-icons/gi";
 import { useDispatch, useSelector } from 'react-redux'
 import { getshipping } from '../Redux/productsRedux/actions'
@@ -32,9 +32,9 @@ const PaymentPage = () => {
     return (
         <div>
             <Stack direction={['column', 'row']} justifyContent={'center'} margin={'auto'} spacing={'24px'}
-                // border={'1px solid teal'}
-                width={'80%'}>
-                <Stack width={'70%'} spacing={'20px'}>
+                 border={'1px solid teal'}
+                width={{base:'100%',md:'100%',lg:'95%'}}>
+                <Stack width={'95%'} spacing={'20px'} direction={['column', 'column']}>
                     <Stack direction={['row']} p={2} bgColor={'white'} border={'1px solid black'} color={'black'} borderRadius={5} width={'100%'} mb={'20px'}>
                         <Box><GiCheckMark /></Box>
                         <Box
@@ -56,6 +56,49 @@ const PaymentPage = () => {
 
                         <Text fontWeight={'bold'}>Card Number</Text>
                         <Input placeholder='' borderRadius={'none'} />
+
+                        <Text fontWeight={'bold'}>Expiration Date</Text>
+                        <Stack direction={['row']}>
+                            <Select placeholder='Select Month' border={'1px solid black'} borderRadius={'none'} width={'50%'} name='state' 
+                           // value={data.state} onChange={(e) => { handleChange(e) }}
+                            >
+                                <option value='january'>1-January</option>
+                                <option value='february'>2-February</option>
+                                <option value='march'>3-March</option>
+                                <option value='april'>4-April</option>
+                                <option value='may'>5-May</option>
+                                <option value='june'>6-June</option>
+                                <option value='july'>7-July</option>
+                                <option value='august'>8-August</option>
+                                <option value='september'>9-September</option>
+                                <option value='october'>10-October</option>
+                                <option value='november'>11-November</option>
+                                <option value='december'>12-December</option>
+                            </Select>
+
+                            
+                       
+                            <Select placeholder='Select Year' border={'1px solid black'} borderRadius={'none'} width={'50%'} name='state' 
+                           // value={data.state} onChange={(e) => { handleChange(e) }}
+                            >
+                                <option value='2023'>2023</option>
+                                <option value='2024'>2024</option>
+                                <option value='2025'>2025</option>
+                                <option value='2026'>2026</option>
+                                <option value='2027'>2027</option>
+                                <option value='2028'>2028</option>
+                                <option value='2029'>2029</option>
+                                <option value='2030'>2030</option>
+                                <option value='2031'>2031</option>
+                                <option value='2032'>2032</option>
+                               
+                                
+                            </Select>
+                            </Stack>
+
+                            <Text fontWeight={'bold'} >Security Code</Text>
+                        <Input placeholder='' borderRadius={'none'} width={'40%'}/>
+
 
                         <FormControl display='flex' alignItems='center' >
                             <Switch id='default-alerts' isChecked />
@@ -137,11 +180,11 @@ const PaymentPage = () => {
                                 </Stack>
                                 <Stack mt={'20px'}>
 
-                                    <Flex alignItems={'center'} justifyContent={'space-between'} width={'40%'}>
+                                    <Flex alignItems={'center'} justifyContent={'space-between'} width={{base:'100%',md:'60%',lg:'40%'}}>
                                         <Text fontWeight={'bold'}>Email</Text>
                                         <Text fontWeight={'400'} color={'blue'} as='u' >Why is this required?</Text>
                                     </Flex>
-                                    <Input placeholder='' width={'40%'} borderRadius={'none'} mb={'20px'} name='email'
+                                    <Input placeholder='' width={{base:'100%',md:'60%',lg:'40%'}} borderRadius={'none'} mb={'20px'} name='email'
                                     //value={data.phone} onChange={(e) => { handleChange(e) }} 
                                     />
                                 </Stack>
@@ -155,7 +198,7 @@ const PaymentPage = () => {
                 </Stack>
 
 
-                <Stack width={'25%'} height={'auto'} direction={['column']}>
+                <Stack width={{base:'100%',md:'100%',lg:'30%'}} height={'auto'} direction={['column', 'column'] }>
                     <Card border={'1px solid black'} borderRadius={'5px'} >
                         <CardHeader>
                             <Text fontWeight={'500'} fontSize={'xl'}>Order Summary</Text>
