@@ -39,7 +39,7 @@ export const getProducts = (paramObj) => (dispatch) => {
       dispatch({ type: types.PRODUCT_FAILURE });
     });
 };
-export const getshipping = () => (dispatch) => {
+export const getShipping = () => (dispatch) => {
   dispatch({ type: types.PRODUCT_REQUEST });
   axios
     .get("http://localhost:8080/shipping" )

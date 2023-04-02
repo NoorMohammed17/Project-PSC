@@ -242,14 +242,15 @@
     }
   ],
   "shipping": {
-    "firstname": "noor",
+    "firstname": "",
     "lastname": "mohammed",
     "address1": "123456",
     "address2": "abcdcolony",
     "city": "hindupur",
-    "state": "gujarat",
+    "state": "andhrapradesh",
     "zipcode": "515201",
     "phone": "8956231470",
-    "order": "Overnight: $29.95"
-  }
+    "order": "Express: $24.95"
+  },
+  "cart2": {}
 }
