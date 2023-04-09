@@ -143,16 +143,16 @@ const SingleProductPage = () => {
                 _hover={{
                   bg: 'blue.500',
                 }}>
-                   {!isButLoading && `Add to Cart`}
-                                {isButLoading && (
-                                    <Spinner
-                                        thickness="4px"
-                                        speed="0.55s"
-                                        emptyColor="gray.200"
-                                        color="#17274a"
-                                        size="sm"
-                                    />
-                                )}
+                {!isButLoading && `Add to Cart`}
+                {isButLoading && (
+                  <Spinner
+                    thickness="4px"
+                    speed="0.55s"
+                    emptyColor="gray.200"
+                    color="#17274a"
+                    size="sm"
+                  />
+                )}
               </Button>
               <Button rounded={'full'}>Back </Button>
             </Stack>
