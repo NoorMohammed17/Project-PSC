@@ -14,6 +14,19 @@ export const addProduct = (data) => (dispatch) => {
     });
 };
 
+export const getProducts = (paramObj) => (dispatch) => {
+  dispatch({ type: types.PRODUCT_REQUEST });
+  axios
+    .get("http://localhost:8080/products", paramObj)
+    .then((res) => {
+      console.log(res);
+      dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
+    })
+    .catch(() => {
+      dispatch({ type: types.PRODUCT_FAILURE });
+    });
+};
+
 export const addShipping = (data) => (dispatch) => {
   dispatch({ type: types.PRODUCT_REQUEST });
   axios
@@ -27,18 +40,7 @@ export const addShipping = (data) => (dispatch) => {
     });
 };
 
-export const getProducts = (paramObj) => (dispatch) => {
-  dispatch({ type: types.PRODUCT_REQUEST });
-  axios
-    .get("http://localhost:8080/products", paramObj)
-    .then((res) => {
-      console.log(res);
-      dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
-    })
-    .catch(() => {
-      dispatch({ type: types.PRODUCT_FAILURE });
-    });
-};
+
 export const getShipping = () => (dispatch) => {
   dispatch({ type: types.PRODUCT_REQUEST });
   axios
@@ -46,6 +48,34 @@ export const getShipping = () => (dispatch) => {
     .then((res) => {
       console.log(res);
       dispatch({ type: types.GET_SHIPPING_SUCCESS, payload: res.data });
+    })
+    .catch(() => {
+      dispatch({ type: types.PRODUCT_FAILURE });
+    });
+};
+
+export const addPayment = (data) => (dispatch) => {
+  dispatch({ type: types.PRODUCT_REQUEST });
+  axios
+    .post("http://localhost:8080/card", data)
+    .then(() => {
+      // console.log(res);
+      dispatch({ type: types.ADD_CART2_SUCCESS });
+    })
+    .catch(() => {
+      dispatch({ type: types.PRODUCT_FAILURE });
+      console.log(err)
+    });
+};
+
+
+export const getPayment = () => (dispatch) => {
+  dispatch({ type: types.PRODUCT_REQUEST });
+  axios
+    .get("http://localhost:8080/card" )
+    .then((res) => {
+      console.log(res);
+      dispatch({ type: types.GET_CART2_SUCCESS, payload: res.data });
     })
     .catch(() => {
       dispatch({ type: types.PRODUCT_FAILURE });

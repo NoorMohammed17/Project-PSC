@@ -242,15 +242,21 @@
     }
   ],
   "shipping": {
-    "firstname": "",
+    "firstname": "noor",
     "lastname": "mohammed",
     "address1": "123456",
     "address2": "abcdcolony",
     "city": "hindupur",
-    "state": "andhrapradesh",
+    "state": "gujarat",
     "zipcode": "515201",
     "phone": "8956231470",
-    "order": "Express: $24.95"
+    "order": "Free Shipping @ $59"
   },
-  "cart2": {}
+  "card": {
+    "cardname": "123",
+    "cardnumber": "123345561222332",
+    "month": "february",
+    "year": "2024",
+    "securityCode": "1245"
+  }
 }

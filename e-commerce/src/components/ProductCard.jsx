@@ -10,19 +10,20 @@ import {
     Tag,
     TagLabel
 } from '@chakra-ui/react';
+import { Link } from "react-router-dom"
 import { BsStarFill } from 'react-icons/bs';
 import { editProduct } from '../Redux/productsRedux/actions';
-import { useDispatch } from 'react-redux';
+//import { useDispatch } from 'react-redux';
 
 
 
 export default function ProductCard({ image, title, category, price, id, rating }) {
-    const dispatch = useDispatch()
+    //const dispatch = useDispatch()
 
-    const editHandler = () => {
-        console.log('edit clicked')
-        dispatch(editProduct(id))
-    }
+    // const singlePageHandler = () => {
+    //     console.log(id)
+    //     dispatch(editProduct(id))
+    // }
     return (
         <Center py={12}>
             <Box
@@ -75,7 +76,7 @@ export default function ProductCard({ image, title, category, price, id, rating 
                     </Heading>
                     <Stack direction={'row'} align={'center'}>
                         <Text fontWeight={600} fontSize={'xl'}>
-                        $ {price}
+                            $ {price}
                         </Text>
 
                     </Stack>
@@ -101,18 +102,20 @@ export default function ProductCard({ image, title, category, price, id, rating 
 
 
                 </Stack>
-                <Stack spacing={10} pt={2}>
-                    <Button
-                        loadingText="Submitting"
-                        size="lg"
-                        bg={'teal.400'}
-                        color={'white'}
-                        onClick={editHandler  }
-                        _hover={{
-                            bg: 'teal.500',
-                        }}>
-                        Edit Product
-                    </Button>
+                <Stack spacing={10} pt={2} m={'auto'}>
+                    <Link to={`/products/${id}`}>
+                        <Button
+                            loadingText="Submitting"
+                            size="lg"
+                            bg={'teal.400'}
+                            color={'white'}
+                            //onClick={singlePageHandler  }
+                            _hover={{
+                                bg: 'teal.500',
+                            }}>
+                            View Details
+                        </Button>
+                    </Link>
                 </Stack>
             </Box>
         </Center>

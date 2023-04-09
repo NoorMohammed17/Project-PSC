@@ -53,7 +53,7 @@ const Checkout = () => {
                 //border='2px solid pink' 
                 direction={['column', 'column', 'row']} spacing={'25px'} margin={'auto'} width={{ base: '100%', md: '100%', lg: '95%' }} mb={'20px'}>
 
-                <Flex width={{ base: '20%', lg: '20%' }} justify={{ base: "center", lg: "flex-start" }} height={'220px'}>
+                <Flex width={{ base: '40%', lg: '20%' }} justifyContent={{ base: "center", lg: "flex-start" }} alignItems={'center'} height={'220px'}>
                     <img src={image} alt={'logo'} width={'100%'} height={30} />
                 </Flex>
                 <Box width={{ base: '100%', lg: '80%' }}
@@ -148,7 +148,7 @@ const Checkout = () => {
                             <Input placeholder='' width={{ base: '100%', md: '70%', lg: '70%' }} borderRadius={'none'} mb={'20px'} name='phone' value={data.phone} onChange={(e) => { handleChange(e) }} />
 
                             <FormControl display='flex' alignItems='center' >
-                                <Switch id='default-alerts' />
+                                <Switch id='default-alerts'  isChecked/>
                                 <FormLabel htmlFor='default-alerts' ml='10px' >
                                     This is my default
                                 </FormLabel>
