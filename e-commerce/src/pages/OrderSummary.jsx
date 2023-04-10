@@ -1,4 +1,4 @@
-
+import React,{useState, useEffect} from 'react';
 import {
     Box,
     Stack,
@@ -12,12 +12,16 @@ import {
 import { FaArrowRight } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Spinner, useToast } from "@chakra-ui/react";
 
 
 export default function OrderSummary() {
     //const { cartItems } = useSelector(state => state.cart)
-    const { cart } = useSelector(store => store.cartReducer);
+   
+    const [isButLoading, setIsButLoading] = useState(false);
+    const toast = useToast();
     const navigate = useNavigate()
+    const { cart } = useSelector(store => store.cartReducer);
     const subtotal = cart?.reduce((acc, el, i) => {
         return acc += el.price * el.quantity
     }, 0)
@@ -27,9 +31,22 @@ export default function OrderSummary() {
     // console.log(discount)
 
 
-    const handleProceed = () => {
-        navigate('/')
-    }
+    const handleCheckout = () => {
+        setIsButLoading(true);
+        setTimeout(() => {
+            setIsButLoading(false);
+            toast({
+                title: "Please Add Your Address ",
+                description: "We need your shipping details for delivery ",
+                status: "info",
+                variant: "left-accent",
+                duration: 2500,
+                isClosable: true,
+                position: "top",
+            });
+            navigate("/checkout");
+        }, 2000);
+    };
     return (
         <Box p={{ lg: '0.5rem', md: '2rem' }}>
             <VStack spacing={1} textAlign="center">
@@ -103,7 +120,7 @@ export default function OrderSummary() {
                         bg={useColorModeValue('gray.50', 'gray.700')}
                         borderBottomRadius={'xl'} p={{ lg: '0.5rem', md: '3rem', sm: '1rem' }}>
                         <Box w="80%" >
-                            <Button onClick={handleProceed} colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+                            <Button onClick={handleCheckout} colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
                                 Checkout
                             </Button>
                         </Box>

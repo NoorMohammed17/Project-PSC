@@ -49,7 +49,7 @@ const SingleProductPage = () => {
         isClosable: true,
         position: "top",
       });
-      navigate("/");
+      navigate("/cart");
     }, 2000);
   }
   // function handleBuy() {

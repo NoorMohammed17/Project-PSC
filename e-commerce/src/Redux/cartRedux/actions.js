@@ -66,15 +66,15 @@ export const deleteCartdata = (id) => (dispatch) => {
 
 export const changeCartItems = (id, qty) => (dispatch) => {
   dispatch(getCartProductsRequestAction());
-  const data = { id, qty };
+  const data = { qty };
   const headers = { "Content-Type": "application/json" };
   return axios
-    .patch("http://localhost:8080/cart", data, { headers })
-    .then((res) =>{
-       dispatch({ type: CHANGE_CART_ITEMS, payload: res.data })
+    .patch(`http://localhost:8080/cart/${id}`, data, { headers })
+    .then((res) => {
+      dispatch({ type: CHANGE_CART_ITEMS, payload: res.data });
     })
     .catch((error) => {
-      dispatch(getCartProductsFailureAction(error))
+      dispatch(getCartProductsFailureAction(error));
     });
 };
 
