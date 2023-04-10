@@ -97,18 +97,18 @@ export const PackageTier = ({ item, HandleCartDelete }) => {
                 Add gift wrapping
               </Link>
             </HStack>
-            <Text>Single Item Price : {item.price}</Text>
+            <Text fontSize={'md'} color={'pink'}>Single Item Price : $ {item.price}</Text>
            
           </Box>
           <Box display='flex' alignItems='center' justifyContent={'center'} gap={2}>
-            <Button onClick={() => handlePlus(item.id)}>+</Button>
+            <Button onClick={ handlePlus}>+</Button>
             <Box as='span'>
               {quantity}
             </Box>
-            <Button disabled={item.quantity == 1} onClick={() => handleMinus(item.id)}>-</Button>
+            <Button disabled={item.quantity == 1} onClick={handleMinus}>-</Button>
           </Box>
           <Stack justifyContent={'center'} textAlign={'center'}>
-            <Heading size={'1xl'}>₹{item.price * quantity}</Heading>
+            <Heading size={'1xl'}>${item.price * quantity}</Heading>
           </Stack>
           <Stack justifyContent={'center'}>
             <Button
@@ -126,11 +126,6 @@ export const PackageTier = ({ item, HandleCartDelete }) => {
   };
 
   const Cart = () => {
-
-
-
-
-
     const navigate = useNavigate();
     const [isButLoading, setIsButLoading] = useState(false);
     const toast = useToast();
@@ -147,46 +142,12 @@ export const PackageTier = ({ item, HandleCartDelete }) => {
       dispatch(getCartProducts());
     }, []);
 
-    //    let totalprice=0;
-    //    for(var i=0;i<products.length;i++){
-    //     if(quantity1[i]===undefined){
-    //         totalprice+=+products[i].price
-
-    //     }else{
-    //         totalprice+=+products[i].price*(+quantity1[i])
-    //         console.log(quantity1[i])
-    //     }
-    // console.log(products[i].price,quantity1[i])
-
-    //    }
 
     function HandleCartDelete(id) {
       dispatch(deleteCartdata(id)).then(() => {
         dispatch(getCartProducts());
       });
     }
-
-    // const handleCheckout = () => {
-    //     setIsButLoading(true);
-    //     setTimeout(() => {
-    //         setIsButLoading(false);
-    //         toast({
-    //             title: "Please Add Your Address ",
-    //             description: "We need your shipping details for delivery ",
-    //             status: "info",
-    //             variant: "left-accent",
-    //             duration: 2500,
-    //             isClosable: true,
-    //             position: "top",
-    //         });
-    //         navigate("/checkout");
-    //     }, 2000);
-    // };
-
-
-
-
-
 
     return (
       <>

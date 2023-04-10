@@ -8,7 +8,9 @@ import {
     AlertDialogHeader,
     AlertDialogContent,
     AlertDialogOverlay,
+    AlertDialogCloseButton,
     useDisclosure,
+    Button,
   } from '@chakra-ui/react'
   import { Link } from "react-router-dom";
 

@@ -125,7 +125,7 @@ const SingleProductPage = () => {
               {data.description}
             </Text>
             <Text fontSize={{ base: 'md', lg: 'lg' }} color={'red.500'}>
-              Price : {data.price}
+              Price : $ {data.price}
             </Text>
 
             {/* <Text fontSize={{ base: 'md', lg: 'lg' }} color={'red.500'}>

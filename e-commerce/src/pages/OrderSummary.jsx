@@ -93,7 +93,7 @@ export default function OrderSummary() {
                                 Subtotal
                             </Text>
                             <Text fontSize="1xl" fontWeight="500">
-                                ₹ {subtotal}
+                                $ {subtotal}
                             </Text>
 
                         </HStack>
@@ -112,7 +112,7 @@ export default function OrderSummary() {
                                 Total
                             </Text>
                             <Text fontSize="1xl" fontWeight="500">
-                                ₹ {(discount).toFixed(2)}
+                                $ {(discount).toFixed(2)}
                             </Text>
                         </HStack>
                     </Box>

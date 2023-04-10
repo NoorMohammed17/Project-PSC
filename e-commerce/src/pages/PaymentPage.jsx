@@ -11,6 +11,7 @@ import { FaCheck } from "react-icons/fa";
 import { BsChevronLeft } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import image from "../assets/HD-logo.png";
+import { useNavigate } from 'react-router-dom'
 
 import { addPayment } from '../Redux/productsRedux/actions'
 //import { Alert, AlertIcon } from '@chakra-ui/react';
@@ -29,6 +30,7 @@ const PaymentPage = () => {
     const dispatch = useDispatch();
     //console.log(shipping);
     const toast = useToast()
+    const navigate = useNavigate()
 
    
    
@@ -57,6 +59,7 @@ const PaymentPage = () => {
         } else {
            
             dispatch(addPayment(newData))
+            navigate("/review")
         }
     
        
