@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: black;
+  }
+  img {
+    width: 180px;
+    height: 100px;
+    display: block;
+    margin: auto;
+    margin-top: 150px;
+  }
+  input {
+    width: 600px;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    font-size: 17px;
+    background-color: #2d2f30;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    color: white;
+  }
+
+  #parent {
+    display: flex;
+    /* background-color: #2d2f30; */
+  }
+
+  #results {
+    /* border: 1px solid red; */
+    width: 600px;
+    /* background-color: #2d2f30; */
+    height: auto;
+    margin: auto;
+    color: white;
+  }
+  .child {
+    background-color: #2d2f30;
+    padding: 20px;
+  }
+
+  /* #eachChar {
+        border: 1px solid teal;
+        width: 80%;
+        height: 90%;
+    } */
+  .child {
+    border: 1px solid pink;
+  }
+  #query::placeholder {
+    padding-left: 30px;
+  }
