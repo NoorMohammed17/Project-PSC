@@ -1,5 +1,5 @@
 
-import { DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, POST_CART_SUCESS } from "./actionTypes";
+import { DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, POST_CART_SUCESS,CHANGE_CART_ITEMS } from "./actionTypes";
 
 const initialState = {
     isLoading: false,
@@ -29,6 +29,8 @@ export const reducer = (state = initialState, { type, payload }) => {
         case POST_CART_SUCESS: {
             return { ...state, isLoading: false, cart: [payload, ...state.cart], };
         }
+        case CHANGE_CART_ITEMS:
+            return { ...state, cart: payload };
         case DELETE_CART_SUCCESS: {
             return { ...state, isLoading: false };
         }

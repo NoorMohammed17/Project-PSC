@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { Link } from "react-router-dom"
 import { BsStarFill } from 'react-icons/bs';
-import { editProduct } from '../Redux/productsRedux/actions';
+//import { editProduct } from '../Redux/productsRedux/actions';
 //import { useDispatch } from 'react-redux';
 
 
@@ -102,11 +102,12 @@ export default function ProductCard({ image, title, category, price, id, rating 
 
 
                 </Stack>
-                <Stack spacing={10} pt={2} m={'auto'}>
-                    <Link to={`/products/${id}`}>
-                        <Button
+                <Stack spacing={10} pt={2} >
+                    
+                        <Button as={Link} to={`/products/${id}`}
                             loadingText="Submitting"
                             size="lg"
+                            m={'auto'}
                             bg={'teal.400'}
                             color={'white'}
                             //onClick={singlePageHandler  }
@@ -115,7 +116,7 @@ export default function ProductCard({ image, title, category, price, id, rating 
                             }}>
                             View Details
                         </Button>
-                    </Link>
+                   
                 </Stack>
             </Box>
         </Center>
