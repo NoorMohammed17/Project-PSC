@@ -88,7 +88,7 @@ const SingleProductPage = () => {
   return (
     <>
 
-      <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+      <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }} mt={'50px'}>
         <Flex flex={1}>
           <Image
             alt={'Login Image'}
