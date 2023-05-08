@@ -70,6 +70,8 @@ export default function Navbar1() {
               }}>Artist collab</Text>
             </Link>
           </HStack>
+
+
           <Stack
             //    display={{ md: "auto", base: "flex" }}
             mx={{ base: "flex-right", md: "auto" }}
@@ -88,6 +90,9 @@ export default function Navbar1() {
               </Link>
             </Tooltip>
           </Stack>
+
+
+          
           <Box display={{ base: "flex", md: "none" }} >
 
           </Box>
@@ -111,11 +116,11 @@ export default function Navbar1() {
             <HStack
             // display={{ md: "flex", base: "flex" }}
             >
-              <Tooltip hasArrow label="Search " bg="black" color="white">
+              {/* <Tooltip hasArrow label="Search " bg="black" color="white">
                 <Button backgroundColor={"white"}>
                   <SlMagnifier size={"20px"} />
                 </Button>
-              </Tooltip>
+              </Tooltip> */}
               <Tooltip hasArrow label="Account " bg="black" color="white">
                 <Button as={Link} to={"/login"} backgroundColor={"white"}>
                   <BsPerson size={"20px"} />
