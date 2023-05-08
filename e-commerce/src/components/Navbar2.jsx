@@ -12,7 +12,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-//import logo from "../assets/Koolz-logo.png";
+import logo from "../assets/logo.jpg";
 
 import { Tooltip } from "@chakra-ui/react";
 import { SlMagnifier } from "react-icons/sl";
@@ -25,8 +25,8 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 export default function Navbar1() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isSmallScreen = useBreakpointValue({ base: true, lg: false });
-  const logo =
-    "https://raw.githubusercontent.com/OnkarK0273/penitent-degree-5872/main/koovs.com/public/images/Koolz-logo.png";
+
+
   return (
     <>
       <Box
@@ -49,33 +49,33 @@ export default function Navbar1() {
             fontSize={14}
           >
             <Link to="/men">
-              <Text   _hover={{
-                  textDecoration: "underline",
-                  color: "teal",
-                  fontWeight: "bold",
-                }}>Men</Text>
+              <Text _hover={{
+                textDecoration: "underline",
+                color: "teal",
+                fontWeight: "bold",
+              }}>Men</Text>
             </Link>
             <Link to="/women">
-              <Text   _hover={{
-                  textDecoration: "underline",
-                  color: "teal",
-                  fontWeight: "bold",
-                }}>Women</Text>
+              <Text _hover={{
+                textDecoration: "underline",
+                color: "teal",
+                fontWeight: "bold",
+              }}>Women</Text>
             </Link>
             <Link to="/">
-              <Text   _hover={{
-                  textDecoration: "underline",
-                  color: "teal",
-                  fontWeight: "bold",
-                }}>Artist collab</Text>
+              <Text _hover={{
+                textDecoration: "underline",
+                color: "teal",
+                fontWeight: "bold",
+              }}>Artist collab</Text>
             </Link>
           </HStack>
           <Stack
-        //    display={{ md: "auto", base: "flex" }}
-        mx={{ base: "flex-right", md: "auto" }}
-           >
+            //    display={{ md: "auto", base: "flex" }}
+            mx={{ base: "flex-right", md: "auto" }}
+          >
             <Tooltip
-              label="KoolZ"
+              label="ClickShop"
               placement="bottom-end"
               bg="white"
               color="gray"
@@ -84,7 +84,7 @@ export default function Navbar1() {
                 kools
               </Heading> */}
               <Link to="/">
-                <Image width={130} height={75} src={logo} alt="logo-koolz" />
+                <Image width={130} height={100} src={logo} alt="logo-myShopStore" />
               </Link>
             </Tooltip>
           </Stack>
@@ -95,20 +95,20 @@ export default function Navbar1() {
             direction={["column", "row"]}
             align={isSmallScreen ? "center" : "flex-right"}
             justify={isSmallScreen ? "center" : "space-between"}
-            width={isSmallScreen?"100%" :"auto"}
-           
+            width={isSmallScreen ? "100%" : "auto"}
+
             px={4}
             py={1}
-            position={{base:"fixed",lg:'absolute' }}
-            bg={{base:"blue.300",lg:'none' }}
+            position={{ base: "fixed", lg: 'absolute' }}
+            bg={{ base: "blue.300", lg: 'none' }}
             top={isSmallScreen ? "auto" : "auto"}
             bottom={isSmallScreen ? 0 : "auto"}
             left={isSmallScreen ? 0 : "auto"}
-            right={isSmallScreen ? "auto": 0}
+            right={isSmallScreen ? "auto" : 0}
             zIndex={1299}
             mx={useBreakpointValue({ base: "auto", md: "auto" })}
           >
-            <HStack 
+            <HStack
             // display={{ md: "flex", base: "flex" }}
             >
               <Tooltip hasArrow label="Search " bg="black" color="white">
@@ -121,11 +121,11 @@ export default function Navbar1() {
                   <BsPerson size={"20px"} />
                 </Button>
               </Tooltip>
-              <Tooltip hasArrow label="Admin " bg="black" color="white">
+              {/* <Tooltip hasArrow label="Admin " bg="black" color="white">
                 <Button as={Link} to={"/admin"} backgroundColor={"white"}>
                   <GrUserAdmin size={"20px"} />
                 </Button>
-              </Tooltip>
+              </Tooltip> */}
 
 
               <Tooltip hasArrow label="Wishlist " bg="black" color="white">

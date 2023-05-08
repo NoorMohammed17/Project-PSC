@@ -29,6 +29,6 @@ export default function ErrorPage() {
         variant="solid">
         Go to Home
       </Button>
-    </Box>
+    </Box> 
   );
 }
